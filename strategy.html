@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strategy Results - PokéTeam Strategist</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/variables.css" />
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/typography.css" />
+    <link rel="stylesheet" href="/css/layout.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- ===== Navigation ===== -->
+        <header class="navbar">
+            <div class="navbar-brand">
+                <svg class="logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="20" cy="20" r="18" fill="#E3350D" stroke="#FFFFFF" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="8" fill="#FFFFFF" stroke="#E3350D" stroke-width="2"/>
+                    <circle cx="20" cy="20" r="4" fill="#E3350D"/>
+                    <line x1="20" y1="2" x2="20" y2="12" stroke="#FFFFFF" stroke-width="2"/>
+                    <line x1="20" y1="28" x2="20" y2="38" stroke="#FFFFFF" stroke-width="2"/>
+                    <line x1="2" y1="20" x2="12" y2="20" stroke="#FFFFFF" stroke-width="2"/>
+                    <line x1="28" y1="20" x2="38" y2="20" stroke="#FFFFFF" stroke-width="2"/>
+                </svg>
+                <span>PokéTeam Strategist</span>
+            </div>
+            <nav class="navbar-links">
+                <a href="/index.html" class="btn btn-sm btn-outline">Home</a>
+                <a href="/team-builder.html" class="btn btn-sm btn-primary">Build Team</a>
+            </nav>
+        </header>
+
+        <!-- ===== Main Content ===== -->
+        <main class="main-content">
+            <div class="container strategy-layout">
+                <!-- Back Button -->
+                <div>
+                    <a href="/team-builder.html" class="btn btn-sm btn-secondary">
+                        ← Back to Team Builder
+                    </a>
+                </div>
+
+                <!-- Team Summary Bar -->
+                <div class="card">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm text-secondary">Team:</span>
+                            <span class="text-sm font-semibold" id="teamFormatLabel">Single Battle</span>
+                        </div>
+                        <div class="flex flex-wrap gap-3" id="teamSummarySprites">
+                            <!-- Sprite summary will be rendered here -->
+                            <span class="text-sm text-muted">No team data available</span>
+                        </div>
+                        <div style="margin-left: auto;">
+                            <button class="btn btn-sm btn-accent export-btn" id="exportBtn">
+                                📋 Export
+                                <span class="tooltip" id="exportTooltip">Copied!</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="tabs" id="resultTabs">
+                    <button class="tab active" data-tab="overview">Overview</button>
+                    <button class="tab" data-tab="single">Single Battle</button>
+                    <button class="tab" data-tab="double">Double Battle</button>
+                    <button class="tab" data-tab="typechart">Type Chart</button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="tabContent">
+                    <!-- Overview Tab -->
+                    <div class="tab-panel active" data-panel="overview">
+                        <div id="overviewContent">
+                            <div class="empty-state">
+                                <div class="loader-container">
+                                    <div class="loader-spinner"></div>
+                                    <p class="loader-text">Loading strategy data...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Battle Tab -->
+                    <div class="tab-panel" data-panel="single">
+                        <div id="singleContent">
+                            <div class="empty-state">
+                                <p class="text-secondary">Select a team to see Single Battle recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Double Battle Tab -->
+                    <div class="tab-panel" data-panel="double">
+                        <div id="doubleContent">
+                            <div class="empty-state">
+                                <p class="text-secondary">Select a team to see Double Battle recommendations</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Type Chart Tab -->
+                    <div class="tab-panel" data-panel="typechart">
+                        <div id="typeChartContent">
+                            <div class="empty-state">
+                                <p class="text-secondary">Type effectiveness chart will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== Footer ===== -->
+        <footer class="footer">
+            <div class="container">
+                <p class="text-sm text-muted" style="margin-bottom: 0;">
+                    PokéTeam Strategist &mdash; Built with ❤️ for Pokémon trainers
+                </p>
+                <p class="text-xs text-muted" style="margin-top: var(--space-2); opacity: 0.6;">
+                    Data provided by <a href="https://pokeapi.co/" target="_blank" rel="noopener noreferrer">PokéAPI</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript - ES Modules -->
+    <script type="module" src="/js/main.js"></script>
+</body>
+</html>
